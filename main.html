@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shape Styler GUI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modal.css" />
+</head>
+
+<body>
+  <h1>Blob Shadow Generator</h1>
+
+  <!-- Modal Trigger -->
+  <button id="openModal">How it works</button>
+
+  <!-- Modal Structure -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>How it works</h2>
+      <p>
+        This tool allows you to generate and customize blob shadows with
+        various controls:
+      </p>
+      <ul>
+        <li>Adjust the width and height of the shape</li>
+        <li>Set the X and Y offset for the shadow</li>
+        <li>Customize the border radius for each corner</li>
+        <li>Change the shape and shadow colors</li>
+        <li>Toggle the outline for both the shape and shadow</li>
+        <li>Copy the generated CSS or HTML</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="controls">
+    <div class="control-group">
+      <label for="width">Width</label>
+      <input id="width" class="slider" type="range" min="100" max="400" value="250" />
+    </div>
+    <div class="control-group">
+      <label for="height">Height</label>
+      <input id="height" class="slider" type="range" min="100" max="400" value="250" />
+    </div>
+    <div class="control-group">
+      <label for="shadowOffsetX">Shadow X Offset</label>
+      <input id="shadowOffsetX" class="slider" type="range" min="-50" max="50" value="10" />
+    </div>
+    <div class="control-group">
+      <label for="shadowOffsetY">Shadow Y Offset</label>
+      <input id="shadowOffsetY" class="slider" type="range" min="-50" max="50" value="10" />
+    </div>
+    <div class="control-group">
+      <label>Border Radius (Top-Left)</label>
+      <input id="borderRadiusTL" class="slider" type="range" min="0" max="100" value="50" />
+    </div>
+    <div class="control-group">
+      <label>Border Radius (Top-Right)</label>
+      <input id="borderRadiusTR" class="slider" type="range" min="0" max="100" value="40" />
+    </div>
+    <div class="control-group">
+      <label>Border Radius (Bottom-Right)</label>
+      <input id="borderRadiusBR" class="slider" type="range" min="0" max="100" value="60" />
+    </div>
+    <div class="control-group">
+      <label>Border Radius (Bottom-Left)</label>
+      <input id="borderRadiusBL" class="slider" type="range" min="0" max="100" value="50" />
+    </div>
+
+    <div class="color-group-wrapper">
+      <div class="control-group">
+        <label for="backgroundColor">Shape Color</label>
+        <input id="backgroundColor" class="picker" type="color" value="#d5dcc4" />
+      </div>
+      <div class="control-group">
+        <label for="shadowColor">Shadow Color</label>
+        <input id="shadowColor" class="picker" type="color" value="#000000" />
+      </div>
+    </div>
+    <div class="border-group-wrapper">
+      <div class="control-group checkbox-wrapper">
+        <label for="toggleShapeBorder">Shape Outline</label>
+        <div class="round">
+          <input id="toggleShapeBorder" class="checkbox" type="checkbox" checked />
+          <label for="toggleShapeBorder"></label>
+        </div>
+      </div>
+      <div class="control-group checkbox-wrapper">
+        <label for="toggleShadowBorder">Shadow Outline</label>
+        <div class="round">
+          <input id="toggleShadowBorder" class="checkbox" type="checkbox" checked />
+          <label for="toggleShadowBorder"></label>
+        </div>
+        
+      </div>
+    </div>
+    <div class="control-group">
+    <label for="exportMultiplier">Multiplier:</label>
+    <input
+      id="exportMultiplier"
+      type="number"
+      min="1"
+      max="10"
+      value="2"
+      style="width: 50px; margin-left: 10px;"
+    />
+      <span class="tooltip">Only viewable after export</span>
+    </div>
+  </div>
+
+  <div id="shape-preview">
+    <div class="shadow-wrapper">
+      <div class="organic-shadow"></div>
+      <div class="organic-shape"></div>
+    </div>
+  </div>
+  <div id="copy-code-buttons">
+    <button id="copyCSS">Copy CSS</button>
+    <button id="copyHTML">Copy HTML</button>
+    <button id="export">Export with Multiplier</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="modal.js"></script>
+  <script src="tooltip.js"></script>
+</body>
+
+</html>
